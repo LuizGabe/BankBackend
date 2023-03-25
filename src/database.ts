@@ -19,7 +19,7 @@ export class Database {
     fs.writeFile(databasePath, JSON.stringify(this.#database, null, 2));
   }
 
-  select(table: string, id?: string): object {
+  select(table: string, id?: string): any {
     let data = this.#database[table] ?? [];
 
     if (id) {
@@ -27,11 +27,11 @@ export class Database {
         return row.id === id;
       });
     }
-
+    
     return data;
   }
 
-  insert(table: string, data: object): object {
+  insert(table: string, data: object): void {
     if (Array.isArray(this.#database[table])) {
       // Se sim entra aqui
       this.#database[table].push(data);
@@ -40,8 +40,6 @@ export class Database {
       // Se não entra aqui
       this.#database[table] = [data];
     }
-
-    return data;
   }
 
   delete(table: string, id: string) {
@@ -61,7 +59,7 @@ export class Database {
     );
 
     if (rowIndex > -1) {
-      this.#database[table][rowIndex] = { id, ...data };
+      this.#database[table][rowIndex] = { id,  ...data };
       this.#persist();
     }
   }
