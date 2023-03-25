@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   allUsers,
+  balanceById,
   addNewUser,
   deleteUser,
   historyById,
@@ -12,6 +13,8 @@ import {
 const userRoute = Router();
 
 userRoute.get('/all', allUsers)
+
+userRoute.get('/balance/:id', balanceById)
 
 userRoute.get('/extrato/:id', historyById)
 

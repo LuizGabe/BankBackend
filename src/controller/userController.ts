@@ -14,6 +14,20 @@ const allUsers = (req: any, res: any) => {
   res.json(user);
 }
 
+const balanceById = (req: any, res: any) => {
+  const { id } = req.params;
+
+  const userExist: boolean = !!database.select(table, id);
+
+  if (userExist) {
+    const user: userInterface = database.select(table, id);
+
+    res.json({...returnMessage(207, user), value: user.balance});
+  } else {
+    res.status(404).json(returnMessage(400));
+  }
+}
+
 const historyById = (req: any, res: any) => {
   const { id } = req.params;
 
@@ -178,6 +192,7 @@ const transferOperation = (req: any, res: any) => {
 
 export {
   allUsers,
+  balanceById,
   historyById,
   addNewUser,
   deleteUser,

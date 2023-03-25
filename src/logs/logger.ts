@@ -14,7 +14,8 @@ const messageOptions: MessageOptions = {
   203: (userA: any) => `Usuário ${userA.name} alterado!`,
   204: "Operação realizada com sucesso!",
   205: (userA: any) => `Usuário ${userA.name} tem agora R$${userA.balance}`,
-  206: (userA: any, userB: any) => `Usuário ${userA.name} tranferiu para o usuário ${userB.name} o valor de R$${userB.history[userB.history.length - 1].value}`
+  206: (userA: any, userB: any) => `Usuário ${userA.name} tranferiu para o usuário ${userB.name} o valor de R$${userB.history[userB.history.length - 1].value}`,
+  207: (userA: any) => `Usuário ${userA.name} possui R$${userA.balance} em sua conta!`
 };
 
 function returnMessage(code: number, userA?: any, userB?: any) {
