@@ -12,6 +12,13 @@ interface userInterface {
 }
 
 interface userInputInterface {
+  name?: string
+  email?: string
+  cpf?: string
+  address?: inputAddressInterface
+}
+
+interface userAddInterface {
   name: string
   email: string
   cpf: string
@@ -20,5 +27,6 @@ interface userInputInterface {
 
 export {
   userInterface,
-  userInputInterface
+  userInputInterface,
+  userAddInterface
 }

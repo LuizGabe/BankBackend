@@ -1,7 +1,9 @@
 interface historyInterface {
-  tipo: string
-  valor: number
-  data: string
+  type: string
+  value: number
+  balance: number
+  source?: string
+  destination?: string
 }
 
 export default historyInterface
